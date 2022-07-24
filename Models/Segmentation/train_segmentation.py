@@ -112,7 +112,7 @@ def get_model_oxford_pets(img_size, num_classes = 2, num_chans = 3):
     return model
     
     
-def segmenter():     
+def retrain_segmenter():     
     X = np.load()#Figure out pathname
     Y_segment = np.load() #Figure out pathname
 
