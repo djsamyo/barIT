@@ -111,11 +111,13 @@ def get_model_oxford_pets(img_size, num_classes = 2, num_chans = 3):
     model = keras.Model(inputs, outputs)
     return model
     
-X = np.load()#Figure out pathname
-Y_segment = np.load() #Figure out pathname
     
-model = get_model_oxford_pets((224, 224), num_classes = 2)
-model.compile(optimizer="Adam", loss='sparse_categorical_crossentropy')
-model.fit(x = X, y=Y_segmentation, epochs=150)
+def segmenter():     
+    X = np.load()#Figure out pathname
+    Y_segment = np.load() #Figure out pathname
 
-model.save("Models/segmentation")
+    model = get_model_oxford_pets((224, 224), num_classes = 2)
+    model.compile(optimizer="Adam", loss='sparse_categorical_crossentropy')
+    model.fit(x = X, y=Y_segmentation, epochs=150)
+
+    model.save("Models/segmentation")
