@@ -1,4 +1,4 @@
-def get_model_oxford_pets(img_size, num_classes = 2):
+def get_model_oxford_pets(img_size, num_classes = 2, num_chans = 3):
 
     if model_encoder == 'Xception Oxford Pets':
 
@@ -114,7 +114,7 @@ def get_model_oxford_pets(img_size, num_classes = 2):
 X = np.load()#Figure out pathname
 Y_segment = np.load() #Figure out pathname
     
-model = get_model_oxford_pets((640, 480), num_classes = 2)
+model = get_model_oxford_pets((224, 224), num_classes = 2)
 model.compile(optimizer="Adam", loss='sparse_categorical_crossentropy')
 model.fit(x = X, y=Y_segmentation, epochs=150)
 
