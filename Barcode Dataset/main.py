@@ -26,15 +26,20 @@ def main():
     green = False
     img = pygame.image.load("capture.jpg")
     img_rect = pygame.Rect(50, 50, 655, 495)
-    print_back = pygame.Rect(1000, 500, 80, 50)
-    print_front = pygame.Rect(1010, 510, 60, 30)
+    print_front = pygame.Rect(1000, 500, 80, 50)
+    bg_img = pygame.image.load('bg_image.jpeg')
+    bg_img = pygame.transform.scale(bg_img, (1200, 600))
+    bg_img.set_alpha(60)
 
     while True:
         for event in pygame.event.get():
             if event.type == QUIT:
                 pygame.quit()
                 sys.exit()
+
+        # background
         window.fill((0, 0, 0))
+        window.blit(bg_img, pygame.Rect(0, 0, 1200, 600))
 
         # capturing photo. not sure how it works, copy/pasted
         cap.set(3,224)
@@ -51,11 +56,9 @@ def main():
         # buttons
         mouse_x, mouse_y = pygame.mouse.get_pos()
         mouse_rect = pygame.Rect(mouse_x, mouse_y, 1, 1)
-        if not mouse_rect.colliderect(print_back):
-            pygame.draw.rect(window, (50, 50, 50), print_back)
+        if not mouse_rect.colliderect(print_front):
             pygame.draw.rect(window, (100, 100, 100), print_front)
         else:
-            pygame.draw.rect(window, (50, 50, 0), print_back)
             pygame.draw.rect(window, (100, 100, 0), print_front)
         window.blit(medium_font.render("Print", False, (255, 255, 255)), (1014, 507))
 
