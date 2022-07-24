@@ -15,6 +15,6 @@ Y_classifier = np.load() #Figure out pathname
 
 model = get_classifier_model()
 model.compile(optimizer = 'Adam', loss = 'categorical_crossentropy')
-model.fit(X, Y_classifier)
+model.fit(X, Y_classifier, epochs = 150)
 
 model.save("Models/classifier")
