@@ -24,8 +24,14 @@ Uses a sequential model that encodes and then decodes the input image
 
 ## Data Processing
 
-## Generating Correctly Oriented Data using Masks: 
+### Generating Correctly Oriented Data using Masks: 
 Uses OpenCV to find the orientation angle of the barcode using the mask, rotates the original image by that angle, and then crops it to a horizontal rectangle
 
-## Generate Damaged Data: 
+### Generate Damaged Data: 
 Creates artificially damaged data using OpenCV by applying translucent boxes and color distortions, and then generating training datasets using modified images. 
+
+## User Interface
+
+### UI.py
+Uses pygame to create a user interface, where users can use a camera to scan barcodes.
+Barcodes are segmented from webcam images, classified as damaged or usable, and then regenerated as usable images.
