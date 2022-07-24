@@ -8,7 +8,7 @@ def image_reconstructor(img_shape, code_size):
     # The decoder
     decoder = Sequential()
     decoder.add(InputLayer((code_size,)))
-    decoder.add(Dense(np.prod(img_shape))) # np.prod(img_shape) is the same as 32*32*3, it's more generic than saying 3072
+    decoder.add(Dense(np.prod(img_shape)))
     decoder.add(Reshape(img_shape))
 
     return encoder, decoder
